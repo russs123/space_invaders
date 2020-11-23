@@ -15,7 +15,7 @@ fps = 60
 
 
 screen_width = 600
-screen_height = 800
+screen_height = 700
 
 screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption('Space Invanders')
@@ -38,11 +38,11 @@ laser_fx.set_volume(0.25)
 
 
 #define game variables
-rows = 5
+rows = 6
 cols = 5
 alien_cooldown = 1000#bullet cooldown in milliseconds
 last_alien_shot = pygame.time.get_ticks()
-countdown = 3
+countdown = 1
 last_count = pygame.time.get_ticks()
 game_over = 0#0 is no game over, 1 means player has won, -1 means player has lost
 
@@ -81,7 +81,7 @@ class Spaceship(pygame.sprite.Sprite):
 
 	def update(self):
 		#set movement speed
-		speed = 8
+		speed = 10
 		#set a cooldown variable
 		cooldown = 500 #milliseconds
 		game_over = 0
@@ -160,7 +160,6 @@ class Aliens(pygame.sprite.Sprite):
 			self.move_counter *= self.move_direction
 
 
-
 #create Alien Bullets class
 class Alien_Bullets(pygame.sprite.Sprite):
 	def __init__(self, x, y):
@@ -180,8 +179,6 @@ class Alien_Bullets(pygame.sprite.Sprite):
 			spaceship.health_remaining -= 1
 			explosion = Explosion(self.rect.centerx, self.rect.centery, 1)
 			explosion_group.add(explosion)
-
-
 
 
 #create Explosion class
@@ -221,8 +218,6 @@ class Explosion(pygame.sprite.Sprite):
 			self.kill()
 
 
-
-
 #create sprite groups
 spaceship_group = pygame.sprite.Group()
 bullet_group = pygame.sprite.Group()
@@ -244,7 +239,6 @@ create_aliens()
 #create player
 spaceship = Spaceship(int(screen_width / 2), screen_height - 100, 3)
 spaceship_group.add(spaceship)
-
 
 
 run = True
