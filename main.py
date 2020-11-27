@@ -47,8 +47,8 @@ last_count = pygame.time.get_ticks()
 game_over = 0#0 is no game over, 1 means player has won, -1 means player has lost
 
 #define colours
-red = (255, 0, 0)
-green = (0, 255, 0)
+red = (255, 100, 100)
+green = (100, 255, 100)
 white = (255, 255, 255)
 
 
